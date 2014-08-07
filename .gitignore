@@ -1,11 +1,9 @@
-dist
-cabal-dev
+# Emacs backups
+*~
+
+# Executables, etc
+*.exe
 *.o
-*.hi
-*.chi
-*.chs.h
-.virtualenv
-.hsenv
-.cabal-sandbox/
-cabal.sandbox.config
-cabal.config
+*.bin
+*.tar*
+*.zip

@@ -1,0 +1,23 @@
+#!/bin/bash
+
+echo "Compiling the overlay from .dts to .dtbo"
+
+dtc -O dtb -o GT-GPIO-00A0.dtbo -b 0 -@ GT-GPIO.dts
+cp GT-GPIO-00A0.dtbo /lib/firmware/
+rm GT-GPIO-00A0.dtbo
+
+echo "Sending overlay to next available eeprom slot."
+echo /lib/firmware/GT-GPIO > /sys/devices/bone_capemgr.9/slots
+
+# Export the pins
+#echo 30 > /sys/class/gpio/export
+#echo 60 > /sys/class/gpio/export
+#echo 31 > /sys/class/gpio/export
+#echo 50 > /sys/class/gpio/export
+
+# Events on falling edge
+#echo "Sending falling edge detection."
+#echo falling > /sys/class/gpio/gpio30/edge
+#echo falling > /sys/class/gpio/gpio60/edge
+#echo falling > /sys/class/gpio/gpio31/edge
+#echo falling > /sys/class/gpio/gpio50/edge
